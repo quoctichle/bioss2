@@ -716,13 +716,19 @@ const openLink = (event, type, dest, url) => {
   border-radius: 32px;
   min-height: clamp(220px, 24vw, 320px);
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 2vw, 32px);
 }
 
 .footer-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: min(900px, 100%);
+  height: auto;
+  object-fit: contain;
   display: block;
+  border-radius: 20px;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
 }
 
 .footer-card::after {
@@ -730,7 +736,7 @@ const openLink = (event, type, dest, url) => {
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(12px);
   pointer-events: none;
   z-index: 1;
 }
