@@ -20,16 +20,16 @@ export default defineEventHandler(async () => {
   try {
     await client.connect();
     const { rows } = await client.query(
-      `SELECT "eventId", "startsAt", "endsAt", "link"
+      `SELECT "eventId", "title", "startsAt", "endsAt", "link"
        FROM public."Event"
        WHERE "startsAt" <= NOW()
          AND "endsAt" >= NOW()
          AND COALESCE(NULLIF(TRIM("link"), ''), '') != ''
        ORDER BY "startsAt" DESC
-       LIMIT 1`
+       LIMIT 12`
     );
 
-    return { event: rows[0] ?? null };
+    return { events: rows };
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     throw createError({
