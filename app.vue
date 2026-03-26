@@ -53,7 +53,8 @@ const textTr = {
     btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanmar",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
     btn5: "SUNSHINE TELECOM",
-    eventLabel: "Sự kiện đang diễn ra"
+    eventLabel: "Sự kiện đang diễn ra",
+    eventPrefix: "Mini Game |"
   },
   en: {
     title: "SUNSHINE ECOSYSTEM",
@@ -63,7 +64,8 @@ const textTr = {
     btn3_1: "MM", btn3_2: "Myanmar Support",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
     btn5: "SUNSHINE TELECOM",
-    eventLabel: "Current Event"
+    eventLabel: "Current Event",
+    eventPrefix: "Mini Game |"
   },
   jp: {
     title: "サンシャイン エコシステム",
@@ -73,7 +75,8 @@ const textTr = {
     btn3_1: "MM", btn3_2: "ミャンマー語サポート",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
     btn5: "SUNSHINE TELECOM",
-    eventLabel: "現在のイベント"
+    eventLabel: "現在のイベント",
+    eventPrefix: "Mini Game |"
   },
   mm: {
     title: "SUNSHINE ဂေဟစနစ်",
@@ -83,7 +86,8 @@ const textTr = {
     btn3_1: "MM", btn3_2: "မြန်မာ အကူအညီ",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
     btn5: "SUNSHINE TELECOM",
-    eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ"
+    eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ",
+    eventPrefix: "Mini Game |"
   }
 };
 
@@ -246,7 +250,10 @@ const openLink = (event, type, dest, url) => {
         >
           <div class="shine"></div>
           <span class="btn-icon">🎉</span>
-          <span class="btn-text">{{ event.title || t.eventLabel }}</span>
+          <span class="btn-text">
+            <span class="event-prefix">{{ t.eventPrefix }}</span>
+            <span>{{ event.title || t.eventLabel }}</span>
+          </span>
         </a>
       </div>
     </div>
@@ -556,6 +563,13 @@ const openLink = (event, type, dest, url) => {
 .btn-text {
   z-index: 3;
   position: relative;
+}
+
+.event-prefix {
+  margin-right: 6px;
+  opacity: 0.85;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 /* Biến nút thành cam bằng cách phủ lớp màu đè lên nut.png */
