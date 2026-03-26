@@ -47,10 +47,14 @@ onUnmounted(() => {
 const textTr = {
   vi: {
     title: "HỆ SINH THÁI SUNSHINE GLOBAL",
-    tiktok1: "TikTok Shop", tiktok2: "Mua Ngay",
-    btn1_1: "VN", btn1_2: "Hỗ trợ Tiếng Việt",
-    btn2_1: "EN", btn2_2: "Hỗ trợ Tiếng Anh",
-    btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanmar",
+    tiktok1: "TikTok Shop",
+    tiktok2: "Mua Ngay",
+    btn1_1: "VN",
+    btn1_2: "Hỗ trợ Tiếng Việt",
+    btn2_1: "EN",
+    btn2_2: "Hỗ trợ Tiếng Anh",
+    btn3_1: "MM",
+    btn3_2: "Hỗ trợ Tiếng Myanmar",
     btn4: "Fanpage Sunshine Global",
     btn5: "Website Sunshine Telecom",
     eventLabel: "Sự kiện đang diễn ra",
@@ -58,10 +62,14 @@ const textTr = {
   },
   en: {
     title: "SUNSHINE GLOBAL ECOSYSTEM",
-    tiktok1: "TikTok Shop", tiktok2: "Order Now",
-    btn1_1: "VN", btn1_2: "Vietnamese Support",
-    btn2_1: "EN", btn2_2: "English Support",
-    btn3_1: "MM", btn3_2: "Myanmar Support",
+    tiktok1: "TikTok Shop",
+    tiktok2: "Order Now",
+    btn1_1: "VN",
+    btn1_2: "Vietnamese Support",
+    btn2_1: "EN",
+    btn2_2: "English Support",
+    btn3_1: "MM",
+    btn3_2: "Myanmar Support",
     btn4: "Fanpage Sunshine Global",
     btn5: "Website Sunshine Telecom",
     eventLabel: "Current Event",
@@ -69,10 +77,14 @@ const textTr = {
   },
   jp: {
     title: "サンシャイン グローバル エコシステム",
-    tiktok1: "TikTok Shop", tiktok2: "今すぐ注文",
-    btn1_1: "VN", btn1_2: "ベトナム語サポート",
-    btn2_1: "EN", btn2_2: "英語サポート",
-    btn3_1: "MM", btn3_2: "ミャンマー語サポート",
+    tiktok1: "TikTok Shop",
+    tiktok2: "今すぐ注文",
+    btn1_1: "VN",
+    btn1_2: "ベトナム語サポート",
+    btn2_1: "EN",
+    btn2_2: "英語サポート",
+    btn3_1: "MM",
+    btn3_2: "ミャンマー語サポート",
     btn4: "ファンページ Sunshine Global",
     btn5: "ウェブサイト Sunshine Telecom",
     eventLabel: "現在のイベント",
@@ -80,10 +92,14 @@ const textTr = {
   },
   mm: {
     title: "SUNSHINE GLOBAL ဂေဟစနစ်",
-    tiktok1: "TikTok Shop", tiktok2: "ယခုမှာယူပါ",
-    btn1_1: "VN", btn1_2: "ဗီယက်နမ် အကူအညီ",
-    btn2_1: "EN", btn2_2: "အင်္ဂလိပ် အကူအညီ",
-    btn3_1: "MM", btn3_2: "မြန်မာ အကူအညီ",
+    tiktok1: "TikTok Shop",
+    tiktok2: "ယခုမှာယူပါ",
+    btn1_1: "VN",
+    btn1_2: "ဗီယက်နမ် အကူအညီ",
+    btn2_1: "EN",
+    btn2_2: "အင်္ဂလိပ် အကူအညီ",
+    btn3_1: "MM",
+    btn3_2: "မြန်မာ အကူအညီ",
     btn4: "ဖန်ပေ့ခ်် Sunshine Global",
     btn5: "ဝဘ်ဆိုဒ် Sunshine Telecom",
     eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ",
@@ -146,7 +162,7 @@ const openLink = (event, type, dest, url) => {
     if (isAndroid) {
       window.location.href = `intent://www.facebook.com/${dest}#Intent;package=com.facebook.katana;scheme=https;end`;
     } else if (isIOS) {
-      window.location.href = `fb://profile/${dest}`; // hoặc fb://facewebmodal/f?href=${url}
+      window.location.href = `fb://profile/${dest}`;
       setTimeout(() => { window.location.href = url; }, 500);
     } else {
       window.open(url, '_blank');
@@ -185,7 +201,6 @@ const openLink = (event, type, dest, url) => {
       <!-- Logo Section -->
       <div class="logo-section">
         <div class="logo-image-placeholder">
-          <!-- User can replace with actual logo image -->
           <img src="/logo.png" alt="Sunshine Ecosystem Logo" class="logo-img" />
         </div>
         <h1 class="brand-title">{{ t.title }}</h1>
@@ -256,29 +271,6 @@ const openLink = (event, type, dest, url) => {
         </a>
       </div>
     </div>
-    <footer class="footer-panel">
-      <div class="footer-left">
-        <img src="/footer.png" alt="Sunshine Telecom background" />
-      </div>
-      <div class="footer-right">
-        <div class="footer-branding">
-          <p class="footer-brand">SUNSHINE TELECOM</p>
-          <p class="footer-tagline">YOUR HOPE IS OUR RESPONSIBILITY</p>
-        </div>
-        <p class="footer-description">
-          Nền tảng sự kiện hàng đầu, mang đến cơ hội sở hữu các sản phẩm công nghệ cao cấp với mức giá không tưởng.
-          Minh bạch, công bằng và đầy kịch tính.
-        </p>
-        <div class="footer-contact">
-          <p class="footer-contact-title">Trụ sở Nhật Bản</p>
-          <p><span>📍</span> 335-0002-埼玉県蕨市塚越1-2-14花見第3ビル5階</p>
-          <p><span>☎️</span> 048-420-6088</p>
-          <p><span>✉️</span> ss@sunshineglobal.co.jp</p>
-          <p><span>🆔</span> MST: 9030001136641</p>
-          <p class="footer-note">Cập ngày: 28/05/2020 bởi Cơ quan thuế quốc gia</p>
-        </div>
-      </div>
-    </footer>
   </div>
 </template>
 
@@ -307,26 +299,23 @@ const openLink = (event, type, dest, url) => {
   min-height: 100svh;
 }
 
-/* Background Effects */
 .bg-wrapper {
   position: fixed;
   inset: 0;
   z-index: -1;
   background-image: url('/nen.png');
   background-position: center; 
-  background-size: 100% 100%; /* Trên mobile: ép ảnh hiển thị trọn vẹn theo chiều rộng và chiều dọc */
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   filter: contrast(1.05) brightness(1.02);
 }
 
-/* Áp dụng riêng cho PC, màn hình lớn */
 @media (min-width: 768px) {
   .bg-wrapper {
-    background-size: cover; /* Trên PC dùng cover bình thường để không bị méo và xấu ảnh do kéo dãn ngang */
+    background-size: cover;
   }
 }
 
-/* Add a subtle dark/light gradient overlay to give depth */
 .bg-wrapper::after {
   content: '';
   position: absolute;
@@ -337,12 +326,9 @@ const openLink = (event, type, dest, url) => {
   z-index: 1;
 }
 
-/* --- ANIMATION KEYFRAMES & EFFECTS --- */
-/* Xóa keyframes bgPanZoom không cần thiết */
-
 .landing-container {
   min-height: 100vh;
-  min-height: 100svh; /* Hỗ trợ safari/mobile tối ưu chiều cao */
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -353,7 +339,6 @@ const openLink = (event, type, dest, url) => {
   padding-top: env(safe-area-inset-top, 0);
 }
 
-/* --- Language Dropdown --- */
 .lang-dropdown-wrapper {
   position: absolute;
   top: 15px;
@@ -366,34 +351,34 @@ const openLink = (event, type, dest, url) => {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.4); /* Chỉnh nền sáng hơn một chút để cờ Nhật nổi bật */
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(26, 91, 54, 0.3); /* Chuyển viền sang màu xanh lá nhẹ để hòa hợp logo */
+  border: 1px solid rgba(26, 91, 54, 0.3);
   padding: 6px 12px;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5); /* Thêm bóng đổ tạo độ nổi */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
 }
 
 .lang-selected:hover {
-  background: rgba(255, 255, 255, 0.6); /* Sáng hơn nữa khi hover */
+  background: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .lang-flag-main {
-  width: 28px; /* Giảm nhẹ kích thước để cân đối với viền */
+  width: 28px;
   height: 28px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Bóng đổ cho cờ để tách biệt với nền sáng */
-  border: 1px solid rgba(255,255,255,0.8); /* Thêm viền trắng mỏng cho cờ */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.8);
 }
 
 .arrow {
-  border: solid #1a5b36; /* Đổi màu mũi tên sang xanh lá cây đậm cho nổi bật trên nền sáng */
+  border: solid #1a5b36;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
@@ -527,7 +512,6 @@ const openLink = (event, type, dest, url) => {
   gap: 16px;
 }
 
-/* Nền chung cơ bản cho các nút */
 .btn {
   display: flex;
   align-items: center;
@@ -539,16 +523,12 @@ const openLink = (event, type, dest, url) => {
   font-family: 'FSMagistral', 'Montserrat', sans-serif;
   font-weight: normal; 
   font-size: 16px;
-  color: #fdfdfd; /* Giảm độ trắng gắt của chữ */
+  color: #fdfdfd;
   position: relative;
   transition: all 0.2s ease;
   overflow: hidden;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  
-  /* Sử dụng trực tiếp ảnh nut.png làm nền duy nhất, không dùng mix-blend-mode */
   background: url('/nut.png') center/cover no-repeat;
-  
-  /* Hiệu ứng 3D nổi khối cơ bản nhưng mờ và đằm hơn */
   box-shadow: 
     0 4px 8px rgba(0, 0, 0, 0.2), 
     inset 0px 3px 6px rgba(255, 255, 255, 0.4), 
@@ -556,7 +536,6 @@ const openLink = (event, type, dest, url) => {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Bỏ lớp ::after highlight chung rực rỡ cũ đi (nó đã được tạo lại êm dịu hơn cho từng màu nút bên dưới) */
 .btn:active {
   transform: translateY(2px) scale(0.98);
 }
@@ -578,11 +557,11 @@ const openLink = (event, type, dest, url) => {
 }
 
 .flag-icon {
-  height: 26px; /* Cờ to hơn hẳn */
+  height: 26px;
   width: auto;
   margin: 0 4px; 
   object-fit: contain;
-  transform: translateY(2px); /* Đẩy cờ thấp xuống (số dương là đi xuống) */
+  transform: translateY(2px);
   z-index: 3;
 }
 
@@ -604,7 +583,6 @@ const openLink = (event, type, dest, url) => {
   letter-spacing: 0.5px;
 }
 
-/* Biến nút thành cam bằng cách phủ lớp màu đè lên nut.png */
 .btn-orange {
   box-shadow: 
     0 6px 12px rgba(180, 110, 20, 0.3), 
@@ -617,25 +595,23 @@ const openLink = (event, type, dest, url) => {
   position: absolute;
   inset: 0;
   border-radius: 50px;
-  background-color: #fca130; /* Trầm lại, bớt chói rực vàng */
-  mix-blend-mode: color; /* Đổi tone màu của nut.png thành cam mà không mất vân/shadow */
+  background-color: #fca130;
+  mix-blend-mode: color;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Thêm lớp màn hơi ngả úa retro phủ lên để giảm chói (Vintage effect) */
 .btn-orange::after {
   content: '';
   position: absolute;
   top: 1px; left: 1px; right: 1px; bottom: 1px;
   border-radius: 50px;
-  border-top: 2px solid rgba(255, 255, 255, 0.6); /* Giảm độ gắt của viền sáng */
-  background: rgba(80, 60, 20, 0.1); /* Phủ màng trầm nhẹ */
+  border-top: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(80, 60, 20, 0.1);
   pointer-events: none;
   z-index: 2;
 }
 
-/* Nút xanh tự dùng ảnh gốc nut.png, chỉ thêm bóng Vintage */
 .btn-green {
   box-shadow: 
     0 6px 12px rgba(40, 90, 30, 0.3), 
@@ -648,13 +624,11 @@ const openLink = (event, type, dest, url) => {
   position: absolute;
   top: 1px; left: 1px; right: 1px; bottom: 1px;
   border-radius: 50px;
-  border-top: 2px solid rgba(255, 255, 255, 0.6); /* Nhẹ nhàng hơn */
-  background: rgba(30, 50, 20, 0.1); /* Lớp bụi/sepia cực nhẹ cản sáng ảnh gốc làm nó đằm lại */
+  border-top: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(30, 50, 20, 0.1);
   pointer-events: none;
   z-index: 2;
 }
-
-/* --- ANIMATION KEYFRAMES & EFFECTS --- */
 
 @keyframes floatLogo {
   0% { transform: translateY(0px) rotate(0deg); }
@@ -691,55 +665,10 @@ const openLink = (event, type, dest, url) => {
   50%, 100% { transform: translateX(250%) skewX(-15deg); }
 }
 
-/* Base button and shine pseudo-element */
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 16px 20px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-family: 'FSMagistral', 'Montserrat', sans-serif;
-  font-weight: normal; 
-  font-size: 16px;
-  color: #fdfdfd;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: hidden;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  background: url('/nut.png') center/cover no-repeat;
-  box-shadow: 
-    0 4px 8px rgba(0, 0, 0, 0.2), 
-    inset 0px 3px 6px rgba(255, 255, 255, 0.4), 
-    inset 0px -4px 6px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* The Shine / Vệt sáng chạy lướt qua */
-.shine {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(
-    90deg, 
-    rgba(255, 255, 255, 0) 0%, 
-    rgba(255, 255, 255, 0.4) 50%, 
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: translateX(-150%) skewX(-15deg);
-  z-index: 5;
-  pointer-events: none;
-}
-
-/* Áp dụng vệt sáng trượt lặp lại liên tục (chậm rãi) */
 .links-section .btn .shine {
   animation: shimmerEffect 4s infinite linear;
 }
 
-/* Stagger thời gian chạy vệt sáng để nó ko chạy cùng lúc trên tất cả các nút */
 .links-section .btn:nth-child(1) .shine { animation-delay: 0s; }
 .links-section .btn:nth-child(2) .shine { animation-delay: 1s; }
 .links-section .btn:nth-child(3) .shine { animation-delay: 1.5s; }
@@ -747,7 +676,6 @@ const openLink = (event, type, dest, url) => {
 .links-section .btn:nth-child(5) .shine { animation-delay: 2.5s; }
 .links-section .btn:nth-child(6) .shine { animation-delay: 3s; }
 
-/* Item entrance delay */
 .links-section .btn {
   opacity: 0;
   animation: fadeUpContent 0.5s ease-out forwards;
@@ -760,12 +688,10 @@ const openLink = (event, type, dest, url) => {
 .links-section .btn:nth-child(5) { animation-delay: 0.55s; }
 .links-section .btn:nth-child(6) { animation-delay: 0.65s; }
 
-/* Nút cam có nhịp đập liên tục nổi bật */
 .links-section .btn:nth-child(1) { 
   animation: fadeUpContent 0.5s ease-out forwards 0.15s, pulseBtn 2s infinite ease-in-out 1s; 
 }
 
-/* Hover effects */
 .btn:hover {
   transform: translateY(-3px);
   filter: brightness(1.1);
@@ -776,104 +702,18 @@ const openLink = (event, type, dest, url) => {
   filter: brightness(0.95);
 }
 
-.footer-panel {
-  margin-top: 48px;
-  width: 100%;
-  max-width: 960px;
-  background: linear-gradient(180deg, #0e1f2c 0%, #071018 100%);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 24px;
-  display: flex;
-  gap: 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-  align-items: stretch;
-}
-
-.footer-left {
-  flex: 0 0 220px;
-  border-radius: 18px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.footer-left img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.footer-right {
-  flex: 1;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-brand {
-  font-family: 'FSMagistral', 'Montserrat', sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.2em;
-  margin: 0;
-}
-
-.footer-tagline {
-  margin: 0;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.footer-description {
-  margin: 0;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.footer-contact {
-  margin-top: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.footer-contact-title {
-  margin: 0;
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.05em;
-}
-
-.footer-contact p {
-  margin: 0;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.footer-note {
-  margin-top: 6px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-@media (max-width: 800px) {
-  .footer-panel {
-    flex-direction: column;
+@media (max-width: 640px) {
+  .content-wrapper {
+    padding: 32px 18px;
   }
 
-  .footer-left {
-    flex: 1 0 auto;
-    order: 2;
+  .btn {
+    padding: 14px 16px;
+    font-size: 15px;
   }
 
-  .footer-right {
-    order: 1;
+  .links-section {
+    gap: 12px;
   }
 }
 </style>
