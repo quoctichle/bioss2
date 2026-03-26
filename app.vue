@@ -280,7 +280,8 @@ const openLink = (event, type, dest, url) => {
 }
 
 :global(body) {
-  background: transparent;
+  background: linear-gradient(180deg, #fdf7df 0%, #f6f6df 45%, #dcefdc 90%);
+  min-height: 100svh;
 }
 
 /* Background Effects */
@@ -326,6 +327,7 @@ const openLink = (event, type, dest, url) => {
   color: #333;
   position: relative;
   overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0);
 }
 
 /* --- Language Dropdown --- */
