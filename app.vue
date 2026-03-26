@@ -45,7 +45,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "Hỗ trợ Tiếng Anh",
     btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanma",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "Website Chính Thức"
+    btn5: "Sunshine Official"
   },
   en: {
     title: "SUNSHINE ECOSYSTEM",
@@ -54,7 +54,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "English Support",
     btn3_1: "MM", btn3_2: "Myanmar Support",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "Official Website"
+    btn5: "Sunshine Official"
   },
   jp: {
     title: "サンシャイン エコシステム",
@@ -63,7 +63,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "英語サポート",
     btn3_1: "MM", btn3_2: "ミャンマー語サポート",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "公式サイト"
+    btn5: "Sunshine Official"
   },
   mm: {
     title: "SUNSHINE ဂေဟစနစ်",
@@ -72,7 +72,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "အင်္ဂလိပ် အကူအညီ",
     btn3_1: "MM", btn3_2: "မြန်မာ အကူအညီ",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "တရားဝင် ဝက်ဘ်ဆိုက်"
+    btn5: "Sunshine Official"
   }
 };
 
