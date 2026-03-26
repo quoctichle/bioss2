@@ -272,7 +272,9 @@ const openLink = (event, type, dest, url) => {
       </div>
     </div>
 
-    <div class="footer-card" role="presentation" aria-label="Sunshine Telecom landscape"></div>
+    <div class="footer-card" role="presentation" aria-label="Sunshine Telecom landscape">
+      <img src="/footer.png" alt="Sunshine Telecom landscape" aria-hidden="true" />
+    </div>
   </div>
 </template>
 
@@ -707,27 +709,31 @@ const openLink = (event, type, dest, url) => {
 }
 
 .footer-card {
-  width: 100%;
+  width: min(960px, 100%);
   position: relative;
   margin-top: 24px;
   overflow: hidden;
   border-radius: 32px;
   min-height: clamp(220px, 24vw, 320px);
-  background-image: url('/footer.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
 }
 
-.footer-card::before {
+.footer-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer-card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(18px);
-  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  mix-blend-mode: screen;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 @media (max-width: 640px) {
