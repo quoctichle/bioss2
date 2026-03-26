@@ -256,6 +256,29 @@ const openLink = (event, type, dest, url) => {
         </a>
       </div>
     </div>
+    <footer class="footer-panel">
+      <div class="footer-left">
+        <img src="/footer.png" alt="Sunshine Telecom background" />
+      </div>
+      <div class="footer-right">
+        <div class="footer-branding">
+          <p class="footer-brand">SUNSHINE TELECOM</p>
+          <p class="footer-tagline">YOUR HOPE IS OUR RESPONSIBILITY</p>
+        </div>
+        <p class="footer-description">
+          Nền tảng sự kiện hàng đầu, mang đến cơ hội sở hữu các sản phẩm công nghệ cao cấp với mức giá không tưởng.
+          Minh bạch, công bằng và đầy kịch tính.
+        </p>
+        <div class="footer-contact">
+          <p class="footer-contact-title">Trụ sở Nhật Bản</p>
+          <p><span>📍</span> 335-0002-埼玉県蕨市塚越1-2-14花見第3ビル5階</p>
+          <p><span>☎️</span> 048-420-6088</p>
+          <p><span>✉️</span> ss@sunshineglobal.co.jp</p>
+          <p><span>🆔</span> MST: 9030001136641</p>
+          <p class="footer-note">Cập ngày: 28/05/2020 bởi Cơ quan thuế quốc gia</p>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -751,5 +774,106 @@ const openLink = (event, type, dest, url) => {
 .btn:active {
   transform: translateY(2px);
   filter: brightness(0.95);
+}
+
+.footer-panel {
+  margin-top: 48px;
+  width: 100%;
+  max-width: 960px;
+  background: linear-gradient(180deg, #0e1f2c 0%, #071018 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  align-items: stretch;
+}
+
+.footer-left {
+  flex: 0 0 220px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.footer-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer-right {
+  flex: 1;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-brand {
+  font-family: 'FSMagistral', 'Montserrat', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.footer-tagline {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-description {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-contact {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-contact-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+.footer-contact p {
+  margin: 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.footer-note {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 800px) {
+  .footer-panel {
+    flex-direction: column;
+  }
+
+  .footer-left {
+    flex: 1 0 auto;
+    order: 2;
+  }
+
+  .footer-right {
+    order: 1;
+  }
 }
 </style>
