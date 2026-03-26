@@ -52,7 +52,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "Hỗ trợ Tiếng Anh",
     btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanmar",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "Sunshine Official"
+    btn5: "SUNSHINE TELECOM"
   },
   en: {
     title: "SUNSHINE ECOSYSTEM",
@@ -61,7 +61,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "English Support",
     btn3_1: "MM", btn3_2: "Myanmar Support",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "Sunshine Official"
+    btn5: "SUNSHINE TELECOM"
   },
   jp: {
     title: "サンシャイン エコシステム",
@@ -70,7 +70,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "英語サポート",
     btn3_1: "MM", btn3_2: "ミャンマー語サポート",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "Sunshine Official"
+    btn5: "SUNSHINE TELECOM"
   },
   mm: {
     title: "SUNSHINE ဂေဟစနစ်",
@@ -79,7 +79,7 @@ const textTr = {
     btn2_1: "EN", btn2_2: "အင်္ဂလိပ် အကူအညီ",
     btn3_1: "MM", btn3_2: "မြန်မာ အကူအညီ",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "Sunshine Official"
+    btn5: "SUNSHINE TELECOM"
   }
 };
 
@@ -193,7 +193,7 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.btn4_1 }} <span class="divider-text">|</span> {{ t.btn4_2 }}</span>
         </a>
 
-        <a href="https://sunshine-telecom.net/" target="_blank" class="btn btn-orange">
+        <a href="https://shop.sunshine-telecom.net/" target="_blank" class="btn btn-orange">
           <div class="shine"></div>
           <img src="/global.png" alt="Global" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn5 }}</span>
