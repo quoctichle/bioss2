@@ -129,45 +129,29 @@ const normalizeEventLink = (rawLink) => {
 const activeEvents = computed(() => {
   const rows = eventPayload.value?.events ?? [];
   return rows
-    .map((event) => {
-      const url = normalizeEventLink(event?.link);
-      if (!url) {
-        return null;
-      }
-      return {
-        ...event,
-        url
-      };
-    })
-    .filter(Boolean);
-});
+    .footer-card {
+      width: 100%;
+      position: relative;
+      margin-top: 24px;
+      overflow: hidden;
+      border-radius: 32px;
+      min-height: clamp(220px, 24vw, 320px);
+      background-image: url('/footer.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-const openLink = (event, type, dest, url) => {
-  event.preventDefault();
-  
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  const isAndroid = /android/i.test(userAgent);
-  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-  
-  if (type === 'messenger') {
-    if (isAndroid) {
-      window.location.href = `intent://m.me/${dest}#Intent;package=com.facebook.orca;scheme=https;end`;
-    } else if (isIOS) {
-      window.location.href = `fb-messenger://user-thread/${dest}`;
-      setTimeout(() => { window.location.href = url; }, 500);
-    } else {
-      window.open(url, '_blank');
+    .footer-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(18px);
+      border-radius: 32px;
+      pointer-events: none;
+      z-index: 0;
     }
-  } else if (type === 'facebook') {
-    if (isAndroid) {
-      window.location.href = `intent://www.facebook.com/${dest}#Intent;package=com.facebook.katana;scheme=https;end`;
-    } else if (isIOS) {
-      window.location.href = `fb://profile/${dest}`;
-      setTimeout(() => { window.location.href = url; }, 500);
-    } else {
-      window.open(url, '_blank');
-    }
-  } else {
     window.open(url, '_blank');
   }
 };
@@ -271,6 +255,8 @@ const openLink = (event, type, dest, url) => {
         </a>
       </div>
     </div>
+
+    <div class="footer-card" role="presentation" aria-label="Sunshine Telecom landscape"></div>
   </div>
 </template>
 
@@ -330,13 +316,15 @@ const openLink = (event, type, dest, url) => {
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   font-family: 'Nunito', sans-serif;
   color: #333;
   position: relative;
   overflow-x: hidden;
-  padding-top: env(safe-area-inset-top, 0);
+  padding: env(safe-area-inset-top, 0) 0 48px;
+  gap: 24px;
 }
 
 .lang-dropdown-wrapper {
@@ -702,6 +690,47 @@ const openLink = (event, type, dest, url) => {
   filter: brightness(0.95);
 }
 
+.footer-card {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0 32px;
+  position: relative;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.footer-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  border-radius: 32px;
+  margin: auto;
+  width: min(960px, calc(100% - 48px));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-card {
+  background-image: url('/footer.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: clamp(220px, 24vw, 320px);
+}
+
+.footer-card img {
+  position: relative;
+  width: min(940px, calc(100% - 56px));
+  height: auto;
+  border-radius: 26px;
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.35);
+  object-fit: cover;
+  z-index: 1;
+}
+
 @media (max-width: 640px) {
   .content-wrapper {
     padding: 32px 18px;
@@ -714,6 +743,10 @@ const openLink = (event, type, dest, url) => {
 
   .links-section {
     gap: 12px;
+  }
+
+  .footer-card {
+    min-height: clamp(200px, 32vw, 260px);
   }
 }
 </style>
