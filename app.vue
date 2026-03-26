@@ -46,46 +46,46 @@ onUnmounted(() => {
 
 const textTr = {
   vi: {
-    title: "HỆ SINH THÁI SUNSHINE",
+    title: "HỆ SINH THÁI SUNSHINE GLOBAL",
     tiktok1: "TikTok Shop", tiktok2: "Mua Ngay",
     btn1_1: "VN", btn1_2: "Hỗ trợ Tiếng Việt",
     btn2_1: "EN", btn2_2: "Hỗ trợ Tiếng Anh",
     btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanmar",
-    btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM",
+    btn4: "Fanpage Sunshine Global",
+    btn5: "Website Sunshine Telecom",
     eventLabel: "Sự kiện đang diễn ra",
     eventPrefix: "Mini Game |"
   },
   en: {
-    title: "SUNSHINE ECOSYSTEM",
+    title: "SUNSHINE GLOBAL ECOSYSTEM",
     tiktok1: "TikTok Shop", tiktok2: "Order Now",
     btn1_1: "VN", btn1_2: "Vietnamese Support",
     btn2_1: "EN", btn2_2: "English Support",
     btn3_1: "MM", btn3_2: "Myanmar Support",
-    btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM",
+    btn4: "Fanpage Sunshine Global",
+    btn5: "Website Sunshine Telecom",
     eventLabel: "Current Event",
     eventPrefix: "Mini Game |"
   },
   jp: {
-    title: "サンシャイン エコシステム",
+    title: "サンシャイン グローバル エコシステム",
     tiktok1: "TikTok Shop", tiktok2: "今すぐ注文",
     btn1_1: "VN", btn1_2: "ベトナム語サポート",
     btn2_1: "EN", btn2_2: "英語サポート",
     btn3_1: "MM", btn3_2: "ミャンマー語サポート",
-    btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM",
+    btn4: "Fanpage Sunshine Global",
+    btn5: "ウェブサイト Sunshine Telecom",
     eventLabel: "現在のイベント",
     eventPrefix: "Mini Game |"
   },
   mm: {
-    title: "SUNSHINE ဂေဟစနစ်",
+    title: "SUNSHINE GLOBAL ဂေဟစနစ်",
     tiktok1: "TikTok Shop", tiktok2: "ယခုမှာယူပါ",
     btn1_1: "VN", btn1_2: "ဗီယက်နမ် အကူအညီ",
     btn2_1: "EN", btn2_2: "အင်္ဂလိပ် အကူအညီ",
     btn3_1: "MM", btn3_2: "မြန်မာ အကူအညီ",
-    btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM",
+    btn4: "Fanpage Sunshine Global",
+    btn5: "ဝဘ်ဆိုဒ် Sunshine Telecom",
     eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ",
     eventPrefix: "Mini Game |"
   }
@@ -189,7 +189,6 @@ const openLink = (event, type, dest, url) => {
           <img src="/logo.png" alt="Sunshine Ecosystem Logo" class="logo-img" />
         </div>
         <h1 class="brand-title">{{ t.title }}</h1>
-        <p class="brand-subtitle">SUNSHINE ECOSYSTEM 🌍</p>
         <div class="divider"></div>
       </div>
 
@@ -231,7 +230,7 @@ const openLink = (event, type, dest, url) => {
         <a href="https://www.facebook.com/sunshineglobal.vn" @click="openLink($event, 'facebook', 'sunshineglobal.vn', 'https://www.facebook.com/sunshineglobal.vn')" class="btn btn-orange">
           <div class="shine"></div>
           <img src="/toanha.png" alt="Building" class="btn-img-icon" />
-          <span class="btn-text">{{ t.btn4_1 }} <span class="divider-text">|</span> {{ t.btn4_2 }}</span>
+          <span class="btn-text">{{ t.btn4 }}</span>
         </a>
 
         <a href="https://shop.sunshine-telecom.net/" target="_blank" class="btn btn-orange">
@@ -470,15 +469,6 @@ const openLink = (event, type, dest, url) => {
   margin: 5px 0;
   letter-spacing: 0px;
   text-shadow: 0px 0px 1px rgba(26, 91, 54, 0.4);
-}
-
-.brand-subtitle {
-  font-family: 'FSMagistral', 'Montserrat', sans-serif;
-  font-size: 13px;
-  color: #e8862f; 
-  font-weight: normal; 
-  margin: 0;
-  letter-spacing: 0.5px;
 }
 
 .divider {
