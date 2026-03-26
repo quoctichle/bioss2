@@ -216,10 +216,17 @@ const openLink = (event, type, dest, url) => {
   inset: 0;
   z-index: -1;
   background-image: url('/nen.png');
-  background-position: center; /* Trả về center để không bị lệch phần trắng lên quá cao */
-  background-size: 100% 100%; /* Ép ảnh hiển thị trọn vẹn theo cả chiều rộng và chiều dọc (bỏ cover) */
+  background-position: center; 
+  background-size: 100% 100%; /* Trên mobile: ép ảnh hiển thị trọn vẹn theo chiều rộng và chiều dọc */
   background-repeat: no-repeat;
   filter: contrast(1.05) brightness(1.02);
+}
+
+/* Áp dụng riêng cho PC, màn hình lớn */
+@media (min-width: 768px) {
+  .bg-wrapper {
+    background-size: cover; /* Trên PC dùng cover bình thường để không bị méo và xấu ảnh do kéo dãn ngang */
+  }
 }
 
 /* Add a subtle dark/light gradient overlay to give depth */
