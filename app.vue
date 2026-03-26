@@ -272,8 +272,15 @@ const openLink = (event, type, dest, url) => {
       </div>
     </div>
 
-    <div class="footer-card" role="presentation" aria-label="Sunshine Telecom landscape">
-      <img src="/footer.png" alt="Sunshine Telecom landscape" aria-hidden="true" />
+    <div class="footer-card" role="presentation" aria-label="Sunshine Telecom information">
+      <div class="footer-info" aria-label="Sunshine Telecom contact information">
+        <p class="footer-info-line footer-info-title">Trụ sở Nhật Bản</p>
+        <p class="footer-info-line"><span class="footer-info-icon" aria-hidden="true">📍</span>335-0002-埼玉県蕨市塚越1-2-14花見第3ビル5階</p>
+        <p class="footer-info-line"><span class="footer-info-icon" aria-hidden="true">📞</span>048-420-6088</p>
+        <p class="footer-info-line"><span class="footer-info-icon" aria-hidden="true">✉️</span>ss@sunshineglobal.co.jp</p>
+        <p class="footer-info-line">MST: 9030001136641</p>
+        <p class="footer-info-line">Cấp ngày: 28/05/2020 bởi Cơ quan thuế quốc gia</p>
+      </div>
     </div>
   </div>
 </template>
@@ -336,12 +343,12 @@ const openLink = (event, type, dest, url) => {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   font-family: 'Nunito', sans-serif;
   color: #333;
   position: relative;
   overflow-x: hidden;
-  padding: env(safe-area-inset-top, 0) 0 48px;
+  padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
   gap: 24px;
 }
 
@@ -466,6 +473,7 @@ const openLink = (event, type, dest, url) => {
   flex-direction: column;
   align-items: center;
   animation: fadeUpContent 0.8s ease-out forwards;
+  align-self: center;
 }
 
 .logo-section {
@@ -709,37 +717,55 @@ const openLink = (event, type, dest, url) => {
 }
 
 .footer-card {
-  width: min(700px, 90vw);
+  width: 100%;
+  max-width: none;
   position: relative;
-  margin-top: 24px;
+  margin-top: auto;
   overflow: hidden;
   border-radius: 32px;
-  min-height: clamp(220px, 24vw, 320px);
+  min-height: clamp(240px, 25vw, 320px);
+  background: transparent;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(24px, 2vw, 32px);
-  max-height: min(30vh, 420px);
+  gap: clamp(24px, 2vw, 32px);
+  padding: clamp(20px, 2vw, 30px);
+  align-self: stretch;
 }
 
-.footer-card img {
-  width: min(420px, 80vw);
-  height: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 20px;
-  max-height: 100%;
+.footer-info {
+  position: relative;
+  margin-top: clamp(4px, 1vw, 8px);
+  text-align: left;
+  font-size: 13px;
+  color: #18633F;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  max-width: 520px;
+  z-index: 2;
+  flex: 1;
+  min-width: 220px;
+  align-self: center;
 }
 
-.footer-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.04);
-  pointer-events: none;
-  z-index: 1;
+.footer-info-line {
+  margin: 2px 0;
 }
+
+.footer-info-title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.footer-info-icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+/* remove overlay to keep footer background transparent */
 
 @media (max-width: 640px) {
   .content-wrapper {
@@ -757,6 +783,20 @@ const openLink = (event, type, dest, url) => {
 
   .footer-card {
     min-height: clamp(200px, 32vw, 260px);
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: none;
+    gap: 2px;
+    padding: 4px 8px;
+    height: auto;
+    margin-top: 8px;
+  }
+
+  .footer-info {
+    text-align: center;
+    margin-top: 0;
+    align-self: center;
+    min-width: auto;
   }
 }
 </style>
