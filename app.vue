@@ -73,7 +73,7 @@ const textTr = {
     btn1_1: "VN", btn1_2: "ベトナム語サポート",
     btn2_1: "EN", btn2_2: "英語サポート",
     btn3_1: "MM", btn3_2: "ミャンマー語サポート",
-    btn4: "Fanpage Sunshine Global",
+    btn4: "ファンページ Sunshine Global",
     btn5: "ウェブサイト Sunshine Telecom",
     eventLabel: "現在のイベント",
     eventPrefix: "Mini Game |"
@@ -84,7 +84,7 @@ const textTr = {
     btn1_1: "VN", btn1_2: "ဗီယက်နမ် အကူအညီ",
     btn2_1: "EN", btn2_2: "အင်္ဂလိပ် အကူအညီ",
     btn3_1: "MM", btn3_2: "မြန်မာ အကူအညီ",
-    btn4: "Fanpage Sunshine Global",
+    btn4: "ဖန်ပေ့ခ်် Sunshine Global",
     btn5: "ဝဘ်ဆိုဒ် Sunshine Telecom",
     eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ",
     eventPrefix: "Mini Game |"
