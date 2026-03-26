@@ -180,13 +180,13 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.btn3_2 }}</span>
         </a>
 
-        <a href="https://www.facebook.com/sunshineglobal.vn" @click="openLink($event, 'facebook', 'sunshineglobal.vn', 'https://www.facebook.com/sunshineglobal.vn')" class="btn btn-green">
+        <a href="https://www.facebook.com/sunshineglobal.vn" @click="openLink($event, 'facebook', 'sunshineglobal.vn', 'https://www.facebook.com/sunshineglobal.vn')" class="btn btn-orange">
           <div class="shine"></div>
           <img src="/toanha.png" alt="Building" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn4_1 }} <span class="divider-text">|</span> {{ t.btn4_2 }}</span>
         </a>
 
-        <a href="https://sunshine-telecom.net/" target="_blank" class="btn btn-green">
+        <a href="https://sunshine-telecom.net/" target="_blank" class="btn btn-orange">
           <div class="shine"></div>
           <img src="/global.png" alt="Global" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn5 }}</span>
