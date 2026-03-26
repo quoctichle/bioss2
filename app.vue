@@ -29,12 +29,44 @@ const closeDropdown = (e) => {
   }
 };
 
+// --- Bảo mật: Chặn F12, chuột phải, và các phím tắt ---
+const disableDevTools = (e) => {
+  // Chặn F12
+  if (e.key === 'F12') {
+    e.preventDefault();
+  }
+  // Chặn Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Windows/Linux)
+  if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) {
+    e.preventDefault();
+  }
+  // Chặn Ctrl+U (View Source)
+  if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+    e.preventDefault();
+  }
+  // Chặn Command+Option+I, Command+Option+J, Command+Option+U (Thêm cho Mac)
+  if (e.metaKey && e.altKey && ['I', 'J', 'U'].includes(e.key.toUpperCase())) {
+    e.preventDefault();
+  }
+};
+
+const disableRightClick = (e) => {
+  e.preventDefault();
+};
+
 onMounted(() => {
   document.addEventListener('click', closeDropdown);
+  
+  // Kích hoạt chặn thao tác
+  document.addEventListener('keydown', disableDevTools);
+  document.addEventListener('contextmenu', disableRightClick);
 });
 
 onUnmounted(() => {
   document.removeEventListener('click', closeDropdown);
+  
+  // Dọn dẹp sự kiện
+  document.removeEventListener('keydown', disableDevTools);
+  document.removeEventListener('contextmenu', disableRightClick);
 });
 
 const textTr = {
