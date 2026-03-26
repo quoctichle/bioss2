@@ -471,6 +471,13 @@ const openLink = (event, type, dest, url) => {
   text-shadow: 0px 0px 1px rgba(26, 91, 54, 0.4);
 }
 
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+}
+
 .divider {
   height: 2px;
   background: linear-gradient(to right, transparent, rgba(26, 91, 54, 0.3), transparent);
