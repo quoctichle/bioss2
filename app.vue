@@ -729,9 +729,8 @@ const openLink = (event, type, dest, url) => {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(24px);
-  mix-blend-mode: screen;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
   pointer-events: none;
   z-index: 1;
 }
