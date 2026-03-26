@@ -273,6 +273,16 @@ const openLink = (event, type, dest, url) => {
   box-sizing: border-box;
 }
 
+:global(html, body) {
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+}
+
+:global(body) {
+  background: transparent;
+}
+
 /* Background Effects */
 .bg-wrapper {
   position: fixed;
