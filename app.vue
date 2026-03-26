@@ -50,7 +50,7 @@ const textTr = {
     tiktok1: "TikTok Shop", tiktok2: "Mua Ngay",
     btn1_1: "VN", btn1_2: "Hỗ trợ Tiếng Việt",
     btn2_1: "EN", btn2_2: "Hỗ trợ Tiếng Anh",
-    btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanma",
+    btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanmar",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
     btn5: "Sunshine Official"
   },
