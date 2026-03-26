@@ -52,7 +52,8 @@ const textTr = {
     btn2_1: "EN", btn2_2: "Hỗ trợ Tiếng Anh",
     btn3_1: "MM", btn3_2: "Hỗ trợ Tiếng Myanmar",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM"
+    btn5: "SUNSHINE TELECOM",
+    eventLabel: "Sự kiện đang diễn ra"
   },
   en: {
     title: "SUNSHINE ECOSYSTEM",
@@ -61,7 +62,8 @@ const textTr = {
     btn2_1: "EN", btn2_2: "English Support",
     btn3_1: "MM", btn3_2: "Myanmar Support",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM"
+    btn5: "SUNSHINE TELECOM",
+    eventLabel: "Current Event"
   },
   jp: {
     title: "サンシャイン エコシステム",
@@ -70,7 +72,8 @@ const textTr = {
     btn2_1: "EN", btn2_2: "英語サポート",
     btn3_1: "MM", btn3_2: "ミャンマー語サポート",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM"
+    btn5: "SUNSHINE TELECOM",
+    eventLabel: "現在のイベント"
   },
   mm: {
     title: "SUNSHINE ဂေဟစနစ်",
@@ -79,11 +82,26 @@ const textTr = {
     btn2_1: "EN", btn2_2: "အင်္ဂလိပ် အကူအညီ",
     btn3_1: "MM", btn3_2: "မြန်မာ အကူအညီ",
     btn4_1: "Ecosystem", btn4_2: "Sunshine Global",
-    btn5: "SUNSHINE TELECOM"
+    btn5: "SUNSHINE TELECOM",
+    eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ"
   }
 };
 
 const t = computed(() => textTr[currentLang.value]);
+
+const { data: eventPayload } = await useFetch('/api/events');
+const activeEvent = computed(() => eventPayload.value?.event ?? null);
+const eventUrl = computed(() => {
+  const rawLink = activeEvent.value?.link?.trim();
+  if (!rawLink) {
+    return null;
+  }
+  if (/^https?:\/\//i.test(rawLink)) {
+    return rawLink;
+  }
+  const normalized = rawLink.replace(/^\/+|\/+$/g, '');
+  return `https://www.event-sunshine-telecom.io.vn/${normalized}`;
+});
 
 const openLink = (event, type, dest, url) => {
   event.preventDefault();
@@ -197,6 +215,18 @@ const openLink = (event, type, dest, url) => {
           <div class="shine"></div>
           <img src="/global.png" alt="Global" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn5 }}</span>
+        </a>
+
+        <a
+          v-if="eventUrl"
+          :href="eventUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-orange event-btn"
+        >
+          <div class="shine"></div>
+          <span class="btn-icon">🎉</span>
+          <span class="btn-text">{{ t.eventLabel }}</span>
         </a>
       </div>
     </div>
@@ -650,6 +680,7 @@ const openLink = (event, type, dest, url) => {
 .links-section .btn:nth-child(4) .shine { animation-delay: 2s; }
 .links-section .btn:nth-child(5) .shine { animation-delay: 2.5s; }
 .links-section .btn:nth-child(6) .shine { animation-delay: 3s; }
+.links-section .btn:nth-child(7) .shine { animation-delay: 3.5s; }
 
 /* Item entrance delay */
 .links-section .btn {
@@ -663,6 +694,7 @@ const openLink = (event, type, dest, url) => {
 .links-section .btn:nth-child(4) { animation-delay: 0.45s; }
 .links-section .btn:nth-child(5) { animation-delay: 0.55s; }
 .links-section .btn:nth-child(6) { animation-delay: 0.65s; }
+.links-section .btn:nth-child(7) { animation-delay: 0.75s; }
 
 /* Nút cam có nhịp đập liên tục nổi bật */
 .links-section .btn:nth-child(1) { 
