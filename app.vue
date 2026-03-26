@@ -720,11 +720,11 @@ const openLink = (event, type, dest, url) => {
   align-items: center;
   justify-content: center;
   padding: clamp(24px, 2vw, 32px);
-  max-height: min(50vh, 520px);
+  max-height: min(30vh, 420px);
 }
 
 .footer-card img {
-  width: min(900px, 100%);
+  width: min(500px, 90%);
   height: auto;
   object-fit: contain;
   display: block;
