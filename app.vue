@@ -129,29 +129,45 @@ const normalizeEventLink = (rawLink) => {
 const activeEvents = computed(() => {
   const rows = eventPayload.value?.events ?? [];
   return rows
-    .footer-card {
-      width: 100%;
-      position: relative;
-      margin-top: 24px;
-      overflow: hidden;
-      border-radius: 32px;
-      min-height: clamp(220px, 24vw, 320px);
-      background-image: url('/footer.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+    .map((event) => {
+      const url = normalizeEventLink(event?.link);
+      if (!url) {
+        return null;
+      }
+      return {
+        ...event,
+        url
+      };
+    })
+    .filter(Boolean);
+});
 
-    .footer-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(18px);
-      border-radius: 32px;
-      pointer-events: none;
-      z-index: 0;
+const openLink = (event, type, dest, url) => {
+  event.preventDefault();
+  
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isAndroid = /android/i.test(userAgent);
+  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+  
+  if (type === 'messenger') {
+    if (isAndroid) {
+      window.location.href = `intent://m.me/${dest}#Intent;package=com.facebook.orca;scheme=https;end`;
+    } else if (isIOS) {
+      window.location.href = `fb-messenger://user-thread/${dest}`;
+      setTimeout(() => { window.location.href = url; }, 500);
+    } else {
+      window.open(url, '_blank');
     }
+  } else if (type === 'facebook') {
+    if (isAndroid) {
+      window.location.href = `intent://www.facebook.com/${dest}#Intent;package=com.facebook.katana;scheme=https;end`;
+    } else if (isIOS) {
+      window.location.href = `fb://profile/${dest}`;
+      setTimeout(() => { window.location.href = url; }, 500);
+    } else {
+      window.open(url, '_blank');
+    }
+  } else {
     window.open(url, '_blank');
   }
 };
@@ -692,12 +708,15 @@ const activeEvents = computed(() => {
 
 .footer-card {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 24px 0 32px;
   position: relative;
   margin-top: 24px;
   overflow: hidden;
+  border-radius: 32px;
+  min-height: clamp(220px, 24vw, 320px);
+  background-image: url('/footer.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .footer-card::before {
@@ -707,28 +726,8 @@ const activeEvents = computed(() => {
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(18px);
   border-radius: 32px;
-  margin: auto;
-  width: min(960px, calc(100% - 48px));
   pointer-events: none;
   z-index: 0;
-}
-
-.footer-card {
-  background-image: url('/footer.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: clamp(220px, 24vw, 320px);
-}
-
-.footer-card img {
-  position: relative;
-  width: min(940px, calc(100% - 56px));
-  height: auto;
-  border-radius: 26px;
-  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.35);
-  object-fit: cover;
-  z-index: 1;
 }
 
 @media (max-width: 640px) {
