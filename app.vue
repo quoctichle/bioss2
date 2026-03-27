@@ -148,11 +148,18 @@ const activeEvents = computed(() => {
 
 const openLink = (event, type, dest, url) => {
   event.preventDefault();
-  
+
   const userAgent = navigator.userAgent || navigator.vendor || window.opera;
   const isAndroid = /android/i.test(userAgent);
   const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-  
+  const isTikTok = /tiktok/i.test(userAgent);
+
+  if (isTikTok) {
+    // Hiển thị popup hướng dẫn mở bằng trình duyệt ngoài
+    alert('Vui lòng nhấn vào dấu ba chấm (⋮) ở góc trên cùng bên phải và chọn "Mở bằng trình duyệt" để truy cập đầy đủ tính năng.');
+    return;
+  }
+
   if (type === 'messenger') {
     if (isAndroid) {
       window.location.href = `intent://m.me/${dest}#Intent;package=com.facebook.orca;scheme=https;end`;
