@@ -45,66 +45,70 @@ onUnmounted(() => {
 });
 
 const textTr = {
-  vi: {
-    title: "HỆ SINH THÁI SUNSHINE GLOBAL",
-    tiktok1: "TikTok Shop",
-    tiktok2: "Mua Ngay",
-    btn1_1: "VN",
-    btn1_2: "Hỗ trợ Tiếng Việt",
-    btn2_1: "EN",
-    btn2_2: "Hỗ trợ Tiếng Anh",
-    btn3_1: "MM",
-    btn3_2: "Hỗ trợ Tiếng Myanmar",
-    btn4: "Fanpage Sunshine Global",
-    btn5: "Website Sunshine Telecom",
-    eventLabel: "Sự kiện đang diễn ra",
-    eventPrefix: "Mini Game |"
-  },
-  en: {
-    title: "SUNSHINE GLOBAL ECOSYSTEM",
-    tiktok1: "TikTok Shop",
-    tiktok2: "Order Now",
-    btn1_1: "VN",
-    btn1_2: "Vietnamese Support",
-    btn2_1: "EN",
-    btn2_2: "English Support",
-    btn3_1: "MM",
-    btn3_2: "Myanmar Support",
-    btn4: "Fanpage Sunshine Global",
-    btn5: "Website Sunshine Telecom",
-    eventLabel: "Current Event",
-    eventPrefix: "Mini Game |"
-  },
-  jp: {
-    title: "サンシャイン グローバル エコシステム",
-    tiktok1: "TikTok Shop",
-    tiktok2: "今すぐ注文",
-    btn1_1: "VN",
-    btn1_2: "ベトナム語サポート",
-    btn2_1: "EN",
-    btn2_2: "英語サポート",
-    btn3_1: "MM",
-    btn3_2: "ミャンマー語サポート",
-    btn4: "ファンページ Sunshine Global",
-    btn5: "ウェブサイト Sunshine Telecom",
-    eventLabel: "現在のイベント",
-    eventPrefix: "Mini Game |"
-  },
-  mm: {
-    title: "SUNSHINE GLOBAL ဂေဟစနစ်",
-    tiktok1: "TikTok Shop",
-    tiktok2: "ယခုမှာယူပါ",
-    btn1_1: "VN",
-    btn1_2: "ဗီယက်နမ် အကူအညီ",
-    btn2_1: "EN",
-    btn2_2: "အင်္ဂလိပ် အကူအညီ",
-    btn3_1: "MM",
-    btn3_2: "မြန်မာ အကူအညီ",
-    btn4: "ဖန်ပေ့ခ်် Sunshine Global",
-    btn5: "ဝဘ်ဆိုဒ် Sunshine Telecom",
-    eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ",
-    eventPrefix: "Mini Game |"
-  }
+    vi: {
+      title: "HỆ SINH THÁI SUNSHINE GLOBAL",
+      tiktok1: "TikTok Shop",
+      tiktok2: "Mua Ngay",
+      btn1_1: "VN",
+      btn1_2: "Hỗ trợ Tiếng Việt",
+      btn2_1: "EN",
+      btn2_2: "Hỗ trợ Tiếng Anh",
+      btn3_1: "MM",
+      btn3_2: "Hỗ trợ Tiếng Myanmar",
+      btn4: "Fanpage Sunshine Global",
+      btn5: "Website Sunshine Telecom",
+      eventLabel: "Sự kiện đang diễn ra",
+      eventPrefix: "Mini Game |",
+      footerTitle: "Trụ sở Nhật Bản"
+    },
+    en: {
+      title: "SUNSHINE GLOBAL ECOSYSTEM",
+      tiktok1: "TikTok Shop",
+      tiktok2: "Order Now",
+      btn1_1: "VN",
+      btn1_2: "Vietnamese Support",
+      btn2_1: "EN",
+      btn2_2: "English Support",
+      btn3_1: "MM",
+      btn3_2: "Myanmar Support",
+      btn4: "Fanpage Sunshine Global",
+      btn5: "Website Sunshine Telecom",
+      eventLabel: "Current Event",
+      eventPrefix: "Mini Game |",
+      footerTitle: "Japan Headquarters"
+    },
+    jp: {
+      title: "サンシャイン グローバル エコシステム",
+      tiktok1: "TikTok Shop",
+      tiktok2: "今すぐ注文",
+      btn1_1: "VN",
+      btn1_2: "ベトナム語サポート",
+      btn2_1: "EN",
+      btn2_2: "英語サポート",
+      btn3_1: "MM",
+      btn3_2: "ミャンマー語サポート",
+      btn4: "ファンページ Sunshine Global",
+      btn5: "ウェブサイト Sunshine Telecom",
+      eventLabel: "現在のイベント",
+      eventPrefix: "ミニゲーム |",
+      footerTitle: "日本本社"
+    },
+    mm: {
+      title: "SUNSHINE GLOBAL ဂေဟစနစ်",
+      tiktok1: "TikTok Shop",
+      tiktok2: "ယခုမှာယူပါ",
+      btn1_1: "VN",
+      btn1_2: "ဗီယက်နမ် အကူအညီ",
+      btn2_1: "EN",
+      btn2_2: "အင်္ဂလိပ် အကူအညီ",
+      btn3_1: "MM",
+      btn3_2: "မြန်မာ အကူအညီ",
+      btn4: "ဖန်ပေ့ခ်် Sunshine Global",
+      btn5: "ဝဘ်ဆိုဒ် Sunshine Telecom",
+      eventLabel: "လက်ရှိ ကျင်းပနေသော ပွဲ",
+      eventPrefix: "မီနီဂိမ်း |",
+      footerTitle: "ဂျပန်အခြေစိုက်ရုံး"
+    }
 };
 
 const t = computed(() => textTr[currentLang.value]);
@@ -215,6 +219,22 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.tiktok1 }} <span class="divider-text">|</span> {{ t.tiktok2 }}</span>
         </a>
 
+        <a
+          v-for="event in activeEvents"
+          :key="event.eventId || event.title || event.link"
+          :href="event.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-orange event-btn"
+        >
+          <div class="shine"></div>
+          <span class="btn-icon">🎉</span>
+          <span class="btn-text">
+            <span class="event-prefix">{{ t.eventPrefix }}</span>
+            <span>{{ event.title || t.eventLabel }}</span>
+          </span>
+        </a>
+
         <a href="https://m.me/SUNSHINE.HOME.PAGE" @click="openLink($event, 'messenger', 'SUNSHINE.HOME.PAGE', 'https://m.me/SUNSHINE.HOME.PAGE')" class="btn btn-green">
           <div class="shine"></div>
           <img src="/tinnhan.png" alt="Message" class="btn-img-icon" />
@@ -253,33 +273,15 @@ const openLink = (event, type, dest, url) => {
           <img src="/global.png" alt="Global" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn5 }}</span>
         </a>
-
-        <a
-          v-for="event in activeEvents"
-          :key="event.eventId || event.title || event.link"
-          :href="event.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-orange event-btn"
-        >
-          <div class="shine"></div>
-          <span class="btn-icon">🎉</span>
-          <span class="btn-text">
-            <span class="event-prefix">{{ t.eventPrefix }}</span>
-            <span>{{ event.title || t.eventLabel }}</span>
-          </span>
-        </a>
       </div>
     </div>
 
     <div class="footer-card" role="presentation" aria-label="Sunshine Telecom information">
       <div class="footer-info" aria-label="Sunshine Telecom contact information">
-        <p class="footer-info-line footer-info-title">Trụ sở Nhật Bản</p>
+        <p class="footer-info-line footer-info-title">{{ t.footerTitle }}</p>
         <p class="footer-info-line"><span class="footer-info-icon" aria-hidden="true">📍</span>335-0002-埼玉県蕨市塚越1-2-14花見第3ビル5階</p>
         <p class="footer-info-line"><span class="footer-info-icon" aria-hidden="true">📞</span>048-420-6088</p>
         <p class="footer-info-line"><span class="footer-info-icon" aria-hidden="true">✉️</span>ss@sunshineglobal.co.jp</p>
-        <p class="footer-info-line">MST: 9030001136641</p>
-        <p class="footer-info-line">Cấp ngày: 28/05/2020 bởi Cơ quan thuế quốc gia</p>
       </div>
     </div>
   </div>
@@ -425,7 +427,7 @@ const openLink = (event, type, dest, url) => {
 
 .lang-option {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   background: transparent;
   border: none;
@@ -793,7 +795,7 @@ const openLink = (event, type, dest, url) => {
   }
 
   .footer-info {
-    text-align: center;
+    text-align: left;
     margin-top: 0;
     align-self: center;
     min-width: auto;
