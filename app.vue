@@ -147,14 +147,7 @@ const activeEvents = computed(() => {
 });
 
 const openLink = (event, type, dest, url) => {
-  event.preventDefault();
-  // Khi click nút, gắn event click toàn trang để chuyển hướng
-  const redirect = () => {
-    window.location.href = url;
-  };
-  document.addEventListener('click', redirect, { once: true });
-  // Đồng thời thử chuyển hướng ngay lập tức (nếu browser cho phép)
-  window.location.href = url;
+  // Đã bỏ hàm này, chuyển sang dùng <a href> thuần
 };
 </script>
 
@@ -216,7 +209,7 @@ const openLink = (event, type, dest, url) => {
           </span>
         </a>
 
-        <a href="https://m.me/SUNSHINE.HOME.PAGE" @click="openLink($event, 'messenger', 'SUNSHINE.HOME.PAGE', 'https://m.me/SUNSHINE.HOME.PAGE')" class="btn btn-green">
+        <a href="https://m.me/SUNSHINE.HOME.PAGE" target="_blank" class="btn btn-green">
           <div class="shine"></div>
           <img src="/tinnhan.png" alt="Message" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn1_1 }}</span>
@@ -225,7 +218,7 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.btn1_2 }}</span>
         </a>
 
-        <a href="https://m.me/SUNSHINE.HOME.PAGE" @click="openLink($event, 'messenger', 'SUNSHINE.HOME.PAGE', 'https://m.me/SUNSHINE.HOME.PAGE')" class="btn btn-green">
+        <a href="https://m.me/SUNSHINE.HOME.PAGE" target="_blank" class="btn btn-green">
           <div class="shine"></div>
           <img src="/tinnhan.png" alt="Message" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn2_1 }}</span>
@@ -234,7 +227,7 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.btn2_2 }}</span>
         </a>
 
-        <a href="https://m.me/sunshine.myanmar.sim.wifi" @click="openLink($event, 'messenger', 'sunshine.myanmar.sim.wifi', 'https://m.me/sunshine.myanmar.sim.wifi')" class="btn btn-green">
+        <a href="https://m.me/sunshine.myanmar.sim.wifi" target="_blank" class="btn btn-green">
           <div class="shine"></div>
           <img src="/tinnhan.png" alt="Message" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn3_1 }}</span>
@@ -243,7 +236,7 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.btn3_2 }}</span>
         </a>
 
-        <a href="https://www.facebook.com/sunshineglobal.vn" @click="openLink($event, 'facebook', 'sunshineglobal.vn', 'https://www.facebook.com/sunshineglobal.vn')" class="btn btn-orange">
+        <a href="https://www.facebook.com/sunshineglobal.vn" target="_blank" class="btn btn-orange">
           <div class="shine"></div>
           <img src="/toanha.png" alt="Building" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn4 }}</span>
