@@ -148,13 +148,13 @@ const activeEvents = computed(() => {
 
 const openLink = (event, type, dest, url) => {
   event.preventDefault();
-
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  const isAndroid = /android/i.test(userAgent);
-  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-
-
-  window.open(url, '_blank');
+  // Khi click nút, gắn event click toàn trang để chuyển hướng
+  const redirect = () => {
+    window.location.href = url;
+  };
+  document.addEventListener('click', redirect, { once: true });
+  // Đồng thời thử chuyển hướng ngay lập tức (nếu browser cho phép)
+  window.location.href = url;
 };
 </script>
 
