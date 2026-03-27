@@ -193,21 +193,22 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.tiktok1 }} <span class="divider-text">|</span> {{ t.tiktok2 }}</span>
         </a>
 
-        <a
-          v-for="event in activeEvents"
-          :key="event.eventId || event.title || event.link"
-          :href="event.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-orange event-btn"
-        >
-          <div class="shine"></div>
-          <span class="btn-icon">🎉</span>
-          <span class="btn-text">
-            <span class="event-prefix">{{ t.eventPrefix }}</span>
-            <span>{{ event.title || t.eventLabel }}</span>
-          </span>
-        </a>
+        <template v-for="event in activeEvents">
+          <a
+            :key="event.eventId || event.title || event.link"
+            :href="event.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-orange event-btn"
+          >
+            <div class="shine"></div>
+            <span class="btn-icon">🎉</span>
+            <span class="btn-text">
+              <span class="event-prefix">{{ t.eventPrefix }}</span>
+              <span>{{ event.title || t.eventLabel }}</span>
+            </span>
+          </a>
+        </template>
 
         <a href="https://m.me/SUNSHINE.HOME.PAGE" target="_blank" class="btn btn-green">
           <div class="shine"></div>
