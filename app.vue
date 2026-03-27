@@ -154,27 +154,7 @@ const openLink = (event, type, dest, url) => {
   const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
 
-  if (type === 'messenger') {
-    if (isAndroid) {
-      window.location.href = `intent://m.me/${dest}#Intent;package=com.facebook.orca;scheme=https;end`;
-    } else if (isIOS) {
-      window.location.href = `fb-messenger://user-thread/${dest}`;
-      setTimeout(() => { window.location.href = url; }, 500);
-    } else {
-      window.open(url, '_blank');
-    }
-  } else if (type === 'facebook') {
-    if (isAndroid) {
-      window.location.href = `intent://www.facebook.com/${dest}#Intent;package=com.facebook.katana;scheme=https;end`;
-    } else if (isIOS) {
-      window.location.href = `fb://profile/${dest}`;
-      setTimeout(() => { window.location.href = url; }, 500);
-    } else {
-      window.open(url, '_blank');
-    }
-  } else {
-    window.open(url, '_blank');
-  }
+  window.open(url, '_blank');
 };
 </script>
 
