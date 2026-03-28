@@ -164,16 +164,33 @@ const activeEvents = computed(() => {
     .filter(Boolean);
 });
 
+const tryDecode = (value) => {
+  if (!value) {
+    return '';
+  }
+  try {
+    if (typeof atob === 'function') {
+      return atob(value);
+    }
+    if (typeof Buffer !== 'undefined') {
+      return Buffer.from(value, 'base64').toString('utf-8');
+    }
+  } catch {
+    // ignore decode errors
+  }
+  return value;
+};
+
 const goToLink = (b64) => {
   if (!b64 || typeof window === 'undefined') {
     return;
   }
-  try {
-    const decoded = typeof atob === 'function' ? atob(b64) : b64;
-    window.open(decoded, '_blank');
-  } catch {
-    // Fallback to the raw value when decoding fails.
-    window.open(b64, '_blank');
+  const decoded = tryDecode(b64);
+  const openFn = window.open?.bind(window);
+  if (openFn) {
+    openFn(decoded, '_blank', 'noopener,noreferrer');
+  } else {
+    window.location.href = decoded;
   }
 };
 
