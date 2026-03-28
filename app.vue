@@ -130,6 +130,23 @@ const normalizeEventLink = (rawLink) => {
   return `https://www.event-sunshine-telecom.io.vn/${normalized}`;
 };
 
+const encodeUrl = (url) => {
+  if (!url) {
+    return '';
+  }
+  try {
+    if (typeof btoa === 'function') {
+      return btoa(url);
+    }
+    if (typeof Buffer !== 'undefined') {
+      return Buffer.from(url).toString('base64');
+    }
+    return '';
+  } catch {
+    return '';
+  }
+};
+
 const activeEvents = computed(() => {
   const rows = eventPayload.value?.events ?? [];
   return rows
@@ -140,15 +157,26 @@ const activeEvents = computed(() => {
       }
       return {
         ...event,
-        url
+        url,
+        urlB64: encodeUrl(url)
       };
     })
     .filter(Boolean);
 });
 
-const openLink = (event, type, dest, url) => {
-  // Đã bỏ hàm này, chuyển sang dùng <a href> thuần
+const goToLink = (b64) => {
+  if (!b64 || typeof window === 'undefined') {
+    return;
+  }
+  try {
+    const decoded = typeof atob === 'function' ? atob(b64) : b64;
+    window.open(decoded, '_blank');
+  } catch {
+    // Fallback to the raw value when decoding fails.
+    window.open(b64, '_blank');
+  }
 };
+
 </script>
 
 <template>
@@ -187,19 +215,22 @@ const openLink = (event, type, dest, url) => {
 
       <!-- Links Section -->
       <div class="links-section">
-        <a href="https://vt.tiktok.com/ZSu79d6Qa/?page=TikTokShop" target="_blank" class="btn btn-orange">
+        <button
+          type="button"
+          @click="goToLink('aHR0cHM6Ly92dC50aWt0b2suY29tL1pTdTc5ZDZRYT9wYWdlPVRpazRrU2hvcA==')"
+          class="btn btn-orange"
+        >
           <div class="shine"></div>
           <img src="/giohang.png" alt="Cart" class="btn-img-icon" />
           <span class="btn-text">{{ t.tiktok1 }} <span class="divider-text">|</span> {{ t.tiktok2 }}</span>
-        </a>
+        </button>
 
-        <a
+        <button
+          type="button"
           v-for="event in activeEvents"
           :key="event.eventId || event.title || event.link"
-          :href="event.url"
-          target="_blank"
-          rel="noopener noreferrer"
           class="btn btn-orange event-btn"
+          @click="goToLink(event.urlB64)"
         >
           <div class="shine"></div>
           <span class="btn-icon">🎉</span>
@@ -207,7 +238,7 @@ const openLink = (event, type, dest, url) => {
             <span class="event-prefix">{{ t.eventPrefix }}</span>
             <span>{{ event.title || t.eventLabel }}</span>
           </span>
-        </a>
+        </button>
 
         <a href="https://m.me/SUNSHINE.HOME.PAGE" target="_blank" class="btn btn-green">
           <div class="shine"></div>
@@ -242,11 +273,15 @@ const openLink = (event, type, dest, url) => {
           <span class="btn-text">{{ t.btn4 }}</span>
         </a>
 
-        <a href="https://shop.sunshine-telecom.net/" target="_blank" class="btn btn-orange">
+        <button
+          type="button"
+          @click="goToLink('aHR0cHM6Ly9zaG9wLnN1bnNoaW5lLXRlbGVjb20ubmV0Lw==')"
+          class="btn btn-orange"
+        >
           <div class="shine"></div>
           <img src="/global.png" alt="Global" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn5 }}</span>
-        </a>
+        </button>
       </div>
     </div>
 
