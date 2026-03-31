@@ -130,23 +130,6 @@ const normalizeEventLink = (rawLink) => {
   return `https://www.event-sunshine-telecom.io.vn/${normalized}`;
 };
 
-const encodeUrl = (url) => {
-  if (!url) {
-    return '';
-  }
-  try {
-    if (typeof btoa === 'function') {
-      return btoa(url);
-    }
-    if (typeof Buffer !== 'undefined') {
-      return Buffer.from(url).toString('base64');
-    }
-    return '';
-  } catch {
-    return '';
-  }
-};
-
 const activeEvents = computed(() => {
   const rows = eventPayload.value?.events ?? [];
   return rows
@@ -157,36 +140,17 @@ const activeEvents = computed(() => {
       }
       return {
         ...event,
-        url,
-        urlB64: encodeUrl(url)
+        url
       };
     })
     .filter(Boolean);
 });
 
-const tryDecode = (value) => {
-  if (!value) {
-    return '';
-  }
-  try {
-    if (typeof atob === 'function') {
-      return atob(value);
-    }
-    if (typeof Buffer !== 'undefined') {
-      return Buffer.from(value, 'base64').toString('utf-8');
-    }
-  } catch {
-    // ignore decode errors
-  }
-  return value;
-};
-
-const goToLink = (b64) => {
-  if (!b64 || typeof window === 'undefined') {
+const goToLink = (url) => {
+  if (!url || typeof window === 'undefined') {
     return;
   }
-  const decoded = tryDecode(b64);
-  window.location.assign(decoded);
+  window.location.assign(url);
 };
 
 </script>
@@ -229,7 +193,7 @@ const goToLink = (b64) => {
       <div class="links-section">
         <button
           type="button"
-          @click="goToLink('aHR0cHM6Ly92dC50aWt0b2suY29tL1pTdTc5ZDZRYT9wYWdlPVRpazRrU2hvcA==')"
+          @click="goToLink('https://vt.tiktok.com/ZSu79d6Qa?page=Tik4kShop')"
           class="btn btn-orange"
         >
           <div class="shine"></div>
@@ -242,7 +206,7 @@ const goToLink = (b64) => {
           v-for="event in activeEvents"
           :key="event.eventId || event.title || event.link"
           class="btn btn-orange event-btn"
-          @click="goToLink(event.urlB64)"
+          @click="goToLink(event.url)"
         >
           <div class="shine"></div>
           <span class="btn-icon">🎉</span>
@@ -287,7 +251,7 @@ const goToLink = (b64) => {
 
         <button
           type="button"
-          @click="goToLink('aHR0cHM6Ly9zaG9wLnN1bnNoaW5lLXRlbGVjb20ubmV0Lw==')"
+          @click="goToLink('https://shop.sunshine-telecom.net/')"
           class="btn btn-orange"
         >
           <div class="shine"></div>
