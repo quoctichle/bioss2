@@ -186,7 +186,12 @@ const goToLink = (b64) => {
     return;
   }
   const decoded = tryDecode(b64);
-  window.location.assign(decoded);
+  const openFn = window.open?.bind(window);
+  if (openFn) {
+    openFn(decoded, '_blank', 'noopener,noreferrer');
+  } else {
+    window.location.href = decoded;
+  }
 };
 
 </script>
@@ -252,7 +257,7 @@ const goToLink = (b64) => {
           </span>
         </button>
 
-        <a href="https://m.me/SUNSHINE.HOME.PAGE" class="btn btn-green">
+        <a href="https://m.me/SUNSHINE.HOME.PAGE" target="_blank" class="btn btn-green">
           <div class="shine"></div>
           <img src="/tinnhan.png" alt="Message" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn1_1 }}</span>
@@ -261,7 +266,7 @@ const goToLink = (b64) => {
           <span class="btn-text">{{ t.btn1_2 }}</span>
         </a>
 
-        <a href="https://m.me/SUNSHINE.HOME.PAGE" class="btn btn-green">
+        <a href="https://m.me/SUNSHINE.HOME.PAGE" target="_blank" class="btn btn-green">
           <div class="shine"></div>
           <img src="/tinnhan.png" alt="Message" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn2_1 }}</span>
@@ -270,7 +275,7 @@ const goToLink = (b64) => {
           <span class="btn-text">{{ t.btn2_2 }}</span>
         </a>
 
-        <a href="https://m.me/sunshine.myanmar.sim.wifi" class="btn btn-green">
+        <a href="https://m.me/sunshine.myanmar.sim.wifi" target="_blank" class="btn btn-green">
           <div class="shine"></div>
           <img src="/tinnhan.png" alt="Message" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn3_1 }}</span>
@@ -279,7 +284,7 @@ const goToLink = (b64) => {
           <span class="btn-text">{{ t.btn3_2 }}</span>
         </a>
 
-        <a href="https://www.facebook.com/sunshineglobal.vn" class="btn btn-orange">
+        <a href="https://www.facebook.com/sunshineglobal.vn" target="_blank" class="btn btn-orange">
           <div class="shine"></div>
           <img src="/toanha.png" alt="Building" class="btn-img-icon" />
           <span class="btn-text">{{ t.btn4 }}</span>
